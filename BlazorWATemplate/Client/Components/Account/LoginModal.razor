@@ -1,0 +1,63 @@
+﻿@page "/Account/LoginModal"
+@inject IAccountService AccountService
+@inject IToastService ToastService
+@inject ILocalStorageService LocalSorage
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+<div class="container">
+    <EditForm Model="login" OnValidSubmit="AuthenticateUser">
+        <DataAnnotationsValidator />
+        <div class="form-floating mb-3">
+            <InputText class="form-control" id="LoginEmail" @bind-Value="login.Email" placeholder="Email" />
+            <label for="LoginEmail">Email</label>
+            <ValidationMessage For="(() => login.Email)" />
+        </div>
+        <div class="form-floating mb-3">
+            <InputText class="form-control" id="LoginPassword" @bind-Value="login.Password" placeholder="Password" type="password" />
+            <label for="LoginPassword">Password</label>
+            <ValidationMessage For="(() => login.Password)" />
+        </div>
+        <GoogleRecaptcha RecaptchaResponseChanged="AlertRecaptchaResponse" />
+        <ValidationMessage For="(() => login.RecaptchaResponse)" />
+        <InputText type="hidden" id="LoginRecaptchaResponse" @bind-Value="login.RecaptchaResponse" />
+        <button type="submit" class="btn btn-primary w-100">Log In</button>
+        <hr />
+        <p class="text-center" role="button"><a @onclick="RecoverPassword">Click here if you forgot your password</a></p>
+    </EditForm>
+</div>
+
+
+@code {
+    [CascadingParameter] BlazoredModalInstance LoginModalInstance { get; set; } = default!;
+    [CascadingParameter] BlazoredModalInstance RecoverPasswordModalInstance { get; set; } = default!;
+    [CascadingParameter] IModalService ModalService { get; set; } = default!;
+    LoginDTO login = new();
+
+    public void AlertRecaptchaResponse(string response)
+    {
+        login.RecaptchaResponse = response;
+    }
+
+    async Task AuthenticateUser()
+    {
+        var Result = await AccountService.Login(login);
+        if (!Result.Success)
+        {
+            ToastService.ShowToast(ToastLevel.Error, Result.Message);
+        }
+        else
+        {
+            await LoginModalInstance.CloseAsync();
+            await LocalSorage.SetItemAsync("authToken", Result.Data);
+            await AuthenticationStateProvider.GetAuthenticationStateAsync();
+            ToastService.ShowToast(ToastLevel.Success, Result.Message);
+            login = new();
+        }
+    }
+
+    async Task RecoverPassword()
+    {
+        await LoginModalInstance.CloseAsync();
+        ModalService.Show<RecoverPasswordModal>("Recover Password");
+    }
+}

@@ -1,0 +1,14 @@
+C:\Users\joshu\source\repos\ForgeSoftware\BlazorWATemplate\BlazorWATemplate\Shared\obj\Debug\net6.0\BlazorWATemplate.Shared.csproj.AssemblyReference.cache
+C:\Users\joshu\source\repos\ForgeSoftware\BlazorWATemplate\BlazorWATemplate\Shared\obj\Debug\net6.0\BlazorWATemplate.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\joshu\source\repos\ForgeSoftware\BlazorWATemplate\BlazorWATemplate\Shared\obj\Debug\net6.0\BlazorWATemplate.Shared.AssemblyInfoInputs.cache
+C:\Users\joshu\source\repos\ForgeSoftware\BlazorWATemplate\BlazorWATemplate\Shared\obj\Debug\net6.0\BlazorWATemplate.Shared.AssemblyInfo.cs
+C:\Users\joshu\source\repos\ForgeSoftware\BlazorWATemplate\BlazorWATemplate\Shared\obj\Debug\net6.0\BlazorWATemplate.Shared.csproj.CoreCompileInputs.cache
+C:\Users\joshu\source\repos\ForgeSoftware\BlazorWATemplate\BlazorWATemplate\Shared\bin\Debug\net6.0\BlazorWATemplate.Shared.deps.json
+C:\Users\joshu\source\repos\ForgeSoftware\BlazorWATemplate\BlazorWATemplate\Shared\bin\Debug\net6.0\BlazorWATemplate.Shared.runtimeconfig.json
+C:\Users\joshu\source\repos\ForgeSoftware\BlazorWATemplate\BlazorWATemplate\Shared\bin\Debug\net6.0\BlazorWATemplate.Shared.dll
+C:\Users\joshu\source\repos\ForgeSoftware\BlazorWATemplate\BlazorWATemplate\Shared\bin\Debug\net6.0\BlazorWATemplate.Shared.pdb
+C:\Users\joshu\source\repos\ForgeSoftware\BlazorWATemplate\BlazorWATemplate\Shared\obj\Debug\net6.0\BlazorWATemplate.Shared.dll
+C:\Users\joshu\source\repos\ForgeSoftware\BlazorWATemplate\BlazorWATemplate\Shared\obj\Debug\net6.0\refint\BlazorWATemplate.Shared.dll
+C:\Users\joshu\source\repos\ForgeSoftware\BlazorWATemplate\BlazorWATemplate\Shared\obj\Debug\net6.0\BlazorWATemplate.Shared.pdb
+C:\Users\joshu\source\repos\ForgeSoftware\BlazorWATemplate\BlazorWATemplate\Shared\obj\Debug\net6.0\BlazorWATemplate.Shared.genruntimeconfig.cache
+C:\Users\joshu\source\repos\ForgeSoftware\BlazorWATemplate\BlazorWATemplate\Shared\obj\Debug\net6.0\ref\BlazorWATemplate.Shared.dll

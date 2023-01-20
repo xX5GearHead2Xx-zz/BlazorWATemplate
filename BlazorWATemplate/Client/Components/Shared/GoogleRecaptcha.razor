@@ -1,0 +1,34 @@
+﻿@inject IJSRuntime JSRuntime
+@inject IToastService ToastService
+<div class="mb-3" id="google_recaptcha"></div>
+
+@using System.ComponentModel
+@code {
+    [Parameter] public EventCallback<string> RecaptchaResponseChanged { get; set; }
+
+    public async void OnRecaptchaResponseChanged(string response)
+    {
+        await RecaptchaResponseChanged.InvokeAsync();
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JSRuntime.InvokeAsync<int>("googleRecaptcha", DotNetObjectReference.Create(this), "google_recaptcha", "6LfJ4-gjAAAAAGELJYVjcGcDeqgoCutQhH9EMOCq");
+        }
+        await base.OnAfterRenderAsync(firstRender);
+    }
+
+    [JSInvokable, EditorBrowsable(EditorBrowsableState.Never)]
+    public void CallbackOnSuccess(string response)
+    {
+        RecaptchaResponseChanged.InvokeAsync(response);
+    }
+
+    [JSInvokable, EditorBrowsable(EditorBrowsableState.Never)]
+    public void CallbackOnExpired()
+    {
+        RecaptchaResponseChanged.InvokeAsync("");
+    }
+}

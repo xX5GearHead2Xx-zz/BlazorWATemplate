@@ -1,0 +1,106 @@
+﻿@inject ILocalStorageService LocalStorage
+@inject AuthenticationStateProvider AuthenticationStateProvider
+<li class="nav-item dropdown">
+    <span @onclick="ToggleAccountMenu" class="nav-link dropdown-toggle">
+        <AuthorizeView>
+            <Authorized>
+                @context.User.Identity.Name.Split(":")[1]
+            </Authorized>
+            <NotAuthorized>
+                Account
+            </NotAuthorized>
+        </AuthorizeView>
+    </span>
+    <div class="dropdown-menu dropdown-menu-right @AccountMenuCssClass">
+        <div @onclick="ToggleAccountMenu">
+            <AuthorizeView Roles="DeveloperEdit,DeveloperReadOnly">
+                <Authorized>
+                    <li><a class="dropdown-item" href="/Dashboard/DeveloperDashboard">Developer Dashboard</a></li>
+                </Authorized>
+            </AuthorizeView>
+            <AuthorizeView Roles="OrderManagerEdit,OrderManagerReadOnly">
+                <Authorized>
+                    <li><a class="dropdown-item" href="/Dashboard/Orders">Orders</a></li>
+                </Authorized>
+            </AuthorizeView>
+            <AuthorizeView Roles="ProductManagerEdit,ProductManagerReadOnly">
+                <Authorized>
+                    <li><a class="dropdown-item" href="/Dashboard/Products">Products</a></li>
+                </Authorized>
+            </AuthorizeView>
+            <AuthorizeView Roles="ClientManagerEdit,ClientManagerReadOnly">
+                <Authorized>
+                    <li><a class="dropdown-item" href="/Dashboard/Clients">Clients</a></li>
+                </Authorized>
+            </AuthorizeView>
+            <AuthorizeView Roles="SupplierManagerEdit,SupplierManagerReadOnly">
+                <Authorized>
+                    <li><a class="dropdown-item" href="/Dashboard/Suppliers">Suppliers</a></li>
+                </Authorized>
+            </AuthorizeView>
+            <AuthorizeView Roles="DepartmentManagerEdit,DepartmentManagerReadOnly">
+                <Authorized>
+                    <li><a class="dropdown-item" href="/Pages/Dashboard/Departments">Departments</a></li>
+                </Authorized>
+            </AuthorizeView>
+            <AuthorizeView Roles="AccountingManagerEdit,AccountingManagerReadOnly">
+                <Authorized>
+                    <li><a class="dropdown-item" href="/Dashboard/Accounting">Accounting</a></li>
+                </Authorized>
+            </AuthorizeView>
+        </div>
+
+        <AuthorizeView>
+            <Authorized>
+                <li><a class="dropdown-item" @onclick="ToggleAccountMenu" href="/Account/MyAccount">My Account</a></li>
+                <li @onclick="LogOut"><a class="dropdown-item">Log Out</a></li>
+            </Authorized>
+            <NotAuthorized>
+                <li @onclick="ShowRegisterModal"><a class="dropdown-item"> Register</a></li>
+                <li @onclick="ShowLoginModal"><a class="dropdown-item"> Log In</a></li>
+            </NotAuthorized>
+        </AuthorizeView>
+    </div>
+</li>
+
+
+@code {
+    [CascadingParameter] BlazoredModalInstance RecoverPasswordModalInstance { get; set; } = default!;
+    [CascadingParameter] BlazoredModalInstance RegisterModalInstance { get; set; } = default!;
+    [CascadingParameter] BlazoredModalInstance LoginModalInstance { get; set; } = default!;
+    [CascadingParameter] IModalService ModalService { get; set; } = default!;
+
+    private bool ShowAccountMenu = false;
+
+    private string AccountMenuCssClass => ShowAccountMenu ? "d-block" : "";
+
+    private void ToggleAccountMenu()
+    {
+        ShowAccountMenu = !ShowAccountMenu;
+    }
+
+    private async Task HideUserMenu()
+    {
+        await Task.Delay(200);
+        ShowAccountMenu = false;
+    }
+
+    private async Task LogOut()
+    {
+        await LocalStorage.RemoveItemAsync("authToken");
+        await AuthenticationStateProvider.GetAuthenticationStateAsync();
+    }
+
+
+    private void ShowRegisterModal()
+    {
+        ToggleAccountMenu();
+        ModalService.Show<RegisterModal>("Register");
+    }
+
+    private void ShowLoginModal()
+    {
+        ToggleAccountMenu();
+        ModalService.Show<LoginModal>("Login");
+    }
+}

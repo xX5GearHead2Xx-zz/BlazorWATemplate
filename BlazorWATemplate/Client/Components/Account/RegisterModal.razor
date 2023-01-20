@@ -1,0 +1,69 @@
+﻿@page "/RegisterModal"
+@inject IAccountService AccountService
+@inject IToastService ToastService
+@inject ILocalStorageService LocalSorage
+@inject AuthenticationStateProvider AuthenticationStateProvider
+<div class="container">
+    <EditForm Model="register" OnValidSubmit="RegisterUser">
+        <DataAnnotationsValidator />
+        <div class="form-floating mb-3">
+            <InputText class="form-control" id="RegisterName" @bind-Value="register.Name" placeholder="Name" />
+            <label for="NameEmail">Name</label>
+            <ValidationMessage For="(() => register.Name)" />
+        </div>
+        <div class="form-floating mb-3">
+            <InputText class="form-control" id="RegisterSurname" @bind-Value="register.Surname" placeholder="Surname" />
+            <label for="RegisterSurname">Surname</label>
+            <ValidationMessage For="(() => register.Surname)" />
+        </div>
+        <div class="form-floating mb-3">
+            <InputText class="form-control" id="RegisterEmail" @bind-Value="register.Email" placeholder="Email" />
+            <label for="RegisterEmail">Email</label>
+            <ValidationMessage For="(() => register.Email)" />
+        </div>
+        <div class="form-floating mb-3">
+            <InputText class="form-control" id="RegisterPassword" @bind-Value="register.Password" placeholder="Password" type="password" />
+            <label for="RegisterPassword">Password</label>
+            <ValidationMessage For="(() => register.Password)" />
+        </div>
+        <div class="form-floating mb-3">
+            <InputText class="form-control" id="RegisterConfirmPassword" @bind-Value="register.ConfirmPassword" placeholder="Confirm Password" type="password" />
+            <label for="RegisterConfirmPassword">Confirm Password</label>
+            <ValidationMessage For="(() => register.ConfirmPassword)" />
+        </div>
+        <GoogleRecaptcha RecaptchaResponseChanged="AlertRecaptchaResponse" />
+        <ValidationMessage For="(() => register.RecaptchaResponse)" />
+        <InputText type="hidden" id="RegisterRecaptchaResponse" @bind-Value="register.RecaptchaResponse" />
+        <button type="submit" class="btn btn-primary w-100">Register</button>
+        <hr />
+        <p>By registering you agree to the <a href="#">Terms and Conditions</a> and <a href="#">Privacy Statement</a> </p>
+    </EditForm>
+</div>
+
+@code {
+    [CascadingParameter] BlazoredModalInstance RegisterModalInstance { get; set; } = default!;
+    [CascadingParameter] IModalService ModalService { get; set; } = default!;
+    RegisterDTO register = new();
+
+    public void AlertRecaptchaResponse(string response)
+    {
+        register.RecaptchaResponse = response;
+    }
+
+    async Task RegisterUser()
+    {
+        var Result = await AccountService.Register(register);
+        if (!Result.Success)
+        {
+            ToastService.ShowToast(ToastLevel.Error, Result.Message);
+        }
+        else
+        {
+            await RegisterModalInstance.CloseAsync();
+            await LocalSorage.SetItemAsync("authToken", Result.Data);
+            await AuthenticationStateProvider.GetAuthenticationStateAsync();
+            ToastService.ShowToast(ToastLevel.Success, Result.Message);
+            register = new();
+        }
+    }
+}

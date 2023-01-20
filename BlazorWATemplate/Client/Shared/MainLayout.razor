@@ -1,0 +1,32 @@
+﻿@inherits LayoutComponentBase
+<body class="bg-dark">
+    <header>
+        <NavMenu />
+    </header>
+    <div class="container">
+        <BlazoredToasts Position="ToastPosition.BottomRight"
+                Timeout="10"
+                IconType="IconType.FontAwesome"
+                ErrorIcon="fa-solid fa-circle-xmark"
+                InfoIcon="fa-solid fa-circle-info"
+                SuccessIcon="fa-solid fa-circle-check"
+                WarningIcon="fa-solid fa-triangle-exclamation" />
+        <main role="main" class="pb-3 mt-5">
+            @Body
+        </main>
+    </div>
+    <footer class="text-center bg-dark">
+    <div class="container text-white py-4 py-lg-5">
+        <ul class="list-inline">
+            <li class="list-inline-item me-4"><a href="">Terms and Conditions</a></li>
+            <li class="list-inline-item me-4"><a href="">Privacy</a></li>
+            <li class="list-inline-item me-4"><a href="">Disclaimer</a></li>
+            <li class="list-inline-item me-4"><a href="">Cookies</a></li>
+            <li class="list-inline-item me-4"><a href="">Returns</a></li>
+        </ul>
+        <p class="text-muted mb-0">Copyright © 2022 Forge Software Solutions</p>
+    </div>
+    </footer>
+</body>
+
+

@@ -1,0 +1,15 @@
+
+*.vsidx
+*.lock
+*.bin
+*.2
+*.dll
+*.pdb
+*.blat
+*.dat
+*.gz
+*.wasm
+*.cache
+*.CopyComplete
+*.BuildWithSkipAnalyzers
+*.props

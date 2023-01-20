@@ -1,0 +1,73 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = browser
+build_property.RootNamespace = BlazorWATemplate.Client
+build_property.RootNamespace = BlazorWATemplate.Client
+build_property.ProjectDir = C:\Users\joshu\source\repos\ForgeSoftware\BlazorWATemplate\BlazorWATemplate\Client\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\joshu\source\repos\ForgeSoftware\BlazorWATemplate\BlazorWATemplate\Client
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/joshu/source/repos/ForgeSoftware/BlazorWATemplate/BlazorWATemplate/Client/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/joshu/source/repos/ForgeSoftware/BlazorWATemplate/BlazorWATemplate/Client/Components/Account/ChangePasswordModal.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XENoYW5nZVBhc3N3b3JkTW9kYWwucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/joshu/source/repos/ForgeSoftware/BlazorWATemplate/BlazorWATemplate/Client/Components/Account/LoginModal.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XExvZ2luTW9kYWwucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/joshu/source/repos/ForgeSoftware/BlazorWATemplate/BlazorWATemplate/Client/Components/Account/Orders.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XE9yZGVycy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/joshu/source/repos/ForgeSoftware/BlazorWATemplate/BlazorWATemplate/Client/Components/Account/RecoverPasswordModal.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFJlY292ZXJQYXNzd29yZE1vZGFsLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/joshu/source/repos/ForgeSoftware/BlazorWATemplate/BlazorWATemplate/Client/Components/Account/RegisterModal.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBY2NvdW50XFJlZ2lzdGVyTW9kYWwucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/joshu/source/repos/ForgeSoftware/BlazorWATemplate/BlazorWATemplate/Client/Components/Shared/AccountButton.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTaGFyZWRcQWNjb3VudEJ1dHRvbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/joshu/source/repos/ForgeSoftware/BlazorWATemplate/BlazorWATemplate/Client/Components/Shared/GoogleRecaptcha.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTaGFyZWRcR29vZ2xlUmVjYXB0Y2hhLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/joshu/source/repos/ForgeSoftware/BlazorWATemplate/BlazorWATemplate/Client/Pages/Account/MyAccount.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxNeUFjY291bnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/joshu/source/repos/ForgeSoftware/BlazorWATemplate/BlazorWATemplate/Client/Pages/Account/NewPassword.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxOZXdQYXNzd29yZC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/joshu/source/repos/ForgeSoftware/BlazorWATemplate/BlazorWATemplate/Client/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/joshu/source/repos/ForgeSoftware/BlazorWATemplate/BlazorWATemplate/Client/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/joshu/source/repos/ForgeSoftware/BlazorWATemplate/BlazorWATemplate/Client/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-eakz646tnz
+
+[C:/Users/joshu/source/repos/ForgeSoftware/BlazorWATemplate/BlazorWATemplate/Client/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-e1un2tr2lo
